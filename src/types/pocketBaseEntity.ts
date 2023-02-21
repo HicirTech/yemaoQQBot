@@ -29,8 +29,17 @@ interface IGroupChatRecord extends pocketBaseRecord {
 }
 interface IBotCredentials extends pocketBaseRecord {
   qqNo: string;
-  qqPass: string
+  qqPass: string;
 }
 
-export type { IJrrp, IGroupChatRecord, OAuthParameters, IBotCredentials };
+interface IChatGPTKey extends pocketBaseRecord {
+  key: string;
+}
 
+export type {
+  IJrrp,
+  IGroupChatRecord,
+  OAuthParameters,
+  IBotCredentials,
+  IChatGPTKey,
+};

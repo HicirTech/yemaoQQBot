@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
+    "chatgpt": "^4.7.2",
     "express": "^4.18.2",
     "fs-extra": "^11.1.0",
     "oicq": "^2.3.1",
