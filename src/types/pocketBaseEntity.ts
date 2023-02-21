@@ -7,29 +7,26 @@ interface OAuthParameters {
   prompt: string;
 }
 
-interface IJrrp extends Record {
-  collectionId: string;
-  collectionName: string;
-  created: string;
-  id: string;
+interface pocketBaseRecord {
+  collectionId?: string;
+  collectionName?: string;
+  created?: string;
+  id?: string;
+  updated?: string;
+  expand?: any;
+}
+
+interface IJrrp extends pocketBaseRecord {
   jrrp: number;
   qq: number;
   today: string;
-  updated: string;
-  expand: any;
 }
 
-interface IGroupChatRecord extends Record {
-  collectionId: string;
-  collectionName: string;
-  created: string;
-  id: string;
+interface IGroupChatRecord extends pocketBaseRecord {
   msg: string;
   senderName: string;
   senderQQ: string;
   time: string;
-  updated: string;
-  expand: any;
 }
 
 export type { IJrrp, IGroupChatRecord, OAuthParameters };

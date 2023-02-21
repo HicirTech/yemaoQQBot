@@ -5,6 +5,7 @@ import { initExpressServer } from "../oauthHandler/oauthHandler.js";
 const POCKET_BASE_LOCATION = "https://connection.yemaoren.net";
 const OAUTH_REDIRECT_URL = "http://localhost:3000/";
 
+
 const initPocketBaseViaPassword = async () => {
   const { uname, upass } = process.env;
 

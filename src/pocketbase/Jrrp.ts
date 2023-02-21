@@ -1,6 +1,11 @@
 import { IJrrp } from "../types/pocketBaseEntity.js";
 import { getConnectedClient } from "./requestClient.js";
 import signale from "signale";
+import { Record } from "pocketbase";
+
+const pocketBaseToJrrp = (record: Record) => {
+  return record as unknown as IJrrp
+}
 
 const jrrpRef = () => {
   const client = getConnectedClient();
@@ -22,8 +27,7 @@ const getTodayJrrpViaQQ = async (messageDate: string, senderQQ: string) => {
 
     signale.success(`Found Jrrp by query ${filterString}`);
     signale.success(JSON.stringify(record, null, 4));
-
-    return record as IJrrp;
+    return pocketBaseToJrrp(record)
   } catch {
     signale.fatal(`No such Jrrp record by query ${filterString}, return null`);
     return null;
