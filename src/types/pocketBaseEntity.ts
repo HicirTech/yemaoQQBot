@@ -1,4 +1,3 @@
-import { Record } from "pocketbase";
 interface OAuthParameters {
   state: string;
   code: string;
@@ -28,5 +27,10 @@ interface IGroupChatRecord extends pocketBaseRecord {
   senderQQ: string;
   time: string;
 }
+interface IBotCredentials extends pocketBaseRecord {
+  qqNo: string;
+  qqPass: string
+}
 
-export type { IJrrp, IGroupChatRecord, OAuthParameters };
+export type { IJrrp, IGroupChatRecord, OAuthParameters, IBotCredentials };
+
