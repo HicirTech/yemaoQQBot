@@ -5,6 +5,7 @@ declare global {
   var pocketbaseClient: PocketBase;
   var pocketbaseGoogleAuthProvider: AuthProviderInfo;
   var oAuthParameters: OAuthParameters;
+  var isLoggedIn: boolean;
 }
 
-export {};
+export { };

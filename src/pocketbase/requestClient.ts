@@ -13,6 +13,8 @@ const initPocketBaseViaPassword = async () => {
   const client = new PocketBase(POCKET_BASE_LOCATION);
   await client.admins.authWithPassword(uname, upass);
   global.pocketbaseClient = client;
+  global.isLoggedIn = true;
+
 };
 
 const initPocketBaseConnectionViaGoogle = async () => {
@@ -50,6 +52,7 @@ const handleGoogleLoginCallback = async () => {
     );
 
   signale.success(`Application init competed!`);
+  global.isLoggedIn = true;
 };
 
 const getConnectedClient = () => {
