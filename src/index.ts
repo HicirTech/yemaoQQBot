@@ -1,14 +1,12 @@
-import signale from "signale";
+import pWaitFor from "p-wait-for";
 import { startChatBot } from "./bot/bot.js";
 import {
   getBotCredentials,
-  setChatGPT,
+  setChatGPT
 } from "./pocketbase/BotCredential.js";
 import {
-  initPocketBaseConnectionViaGoogle,
-  initPocketBaseViaPassword,
+  initPocketBaseConnectionViaGoogle
 } from "./pocketbase/requestClient.js";
-import pWaitFor from "p-wait-for";
 
 const main = async () => {
   await initPocketBaseConnectionViaGoogle();
