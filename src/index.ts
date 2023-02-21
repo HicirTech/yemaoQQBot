@@ -1,5 +1,5 @@
 import signale from "signale";
-import { getChatBot } from "./bot/bot.js";
+import { startChatBot } from "./bot/bot.js";
 import { getBotCredentials } from "./pocketbase/BotCredential.js";
 import {
   initPocketBaseConnectionViaGoogle,
@@ -8,12 +8,13 @@ import {
 import pWaitFor from 'p-wait-for';
 
 const main = async () => {
-  // await initPocketBaseConnectionViaGoogle();
-  await initPocketBaseViaPassword();
+  await initPocketBaseConnectionViaGoogle();
+  // await initPocketBaseViaPassword();
 
   await pWaitFor(() => Boolean(global.isLoggedIn));
 
-
+  const botCredential = await getBotCredentials()
+  startChatBot(botCredential.qqNo);
 };
 
 main();

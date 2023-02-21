@@ -4,8 +4,8 @@ import signale from "signale";
 import { Record } from "pocketbase";
 
 const pocketBaseToJrrp = (record: Record) => {
-  return record as unknown as IJrrp
-}
+  return record as unknown as IJrrp;
+};
 
 const jrrpRef = () => {
   const client = getConnectedClient();
@@ -16,7 +16,7 @@ const createJrrp = async (newJrrp: IJrrp) => {
   const newRecord = await jrrpRef().create(newJrrp);
   signale.success(`New Jrrp record created`);
   signale.success(JSON.stringify(newRecord, null, 4));
-  return newRecord;
+  return pocketBaseToJrrp(newRecord);
 };
 
 const getTodayJrrpViaQQ = async (messageDate: string, senderQQ: string) => {
@@ -27,10 +27,10 @@ const getTodayJrrpViaQQ = async (messageDate: string, senderQQ: string) => {
 
     signale.success(`Found Jrrp by query ${filterString}`);
     signale.success(JSON.stringify(record, null, 4));
-    return pocketBaseToJrrp(record)
+    return pocketBaseToJrrp(record);
   } catch {
     signale.fatal(`No such Jrrp record by query ${filterString}, return null`);
-    return null;
+    return undefined;
   }
 };
 
